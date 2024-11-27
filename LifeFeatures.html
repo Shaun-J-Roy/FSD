@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeFlowHub - Features</title>
+    <style>
+        /* Include all styles from index.html */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #f4f4f4;
+            padding: 1rem 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+        .hero {
+            background-color: #e9ecef;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            border: 1px solid #007bff;
+            color: #007bff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .features {
+            padding: 4rem 0;
+        }
+        .features h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .feature-item {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .feature-item h3 {
+            margin-bottom: 1rem;
+        }
+        footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            nav ul li {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+        }
+        .feature-detail {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-detail h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        .feature-detail ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .feature-detail li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .feature-detail li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <h1><a href="LifeFlowHub.html">LifeFlowHub</a></h1>
+            <ul>
+                <li><a href="LifeFlowHub.html">Home</a></li>
+                <li><a href="LifeFeatures.html">Features</a></li>
+                <li><a href="LifeModules.html">Modules</a></li>
+                <li><a href="LifeIntergrations.html">Integrations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>LifeFlowHub Features</h1>
+                <p>Discover the powerful features that make LifeFlowHub your ultimate life management platform.</p>
+                <a href="LifeStart.html" class="btn">Get Started</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>Habit Tracking</h3>
+                        <p>Daily, weekly, and monthly habit tracking with streaks and rewards.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Goal Setting</h3>
+                        <p>SMART goal templates with milestones and actionable tasks.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Health Tracking</h3>
+                        <p>Monitor activities, nutrition, sleep, and overall wellness.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Academic Planning</h3>
+                        <p>Manage assignments, study schedules, and project deadlines.</p>
+                    </div>
+                </div>
+
+                <div class="feature-detail">
+                    <h3>Habit Tracking</h3>
+                    <p>Our habit tracking feature helps you build and maintain positive habits consistently. With LifeFlowHub, you can:</p>
+                    <ul>
+                        <li>Create custom habits tailored to your personal goals</li>
+                        <li>Set daily, weekly, or monthly tracking intervals</li>
+                        <li>Visualize your progress with intuitive charts and graphs</li>
+                        <li>Earn streak rewards to stay motivated</li>
+                        <li>Receive gentle reminders to keep you on track</li>
+                        <li>Analyze your habit formation patterns over time</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail">
+                    <h3>Goal Setting</h3>
+                    <p>Achieve your dreams with our comprehensive goal-setting tools. LifeFlowHub empowers you to:</p>
+                    <ul>
+                        <li>Create SMART (Specific, Measurable, Achievable, Relevant, Time-bound) goals</li>
+                        <li>Break down large goals into manageable milestones</li>
+                        <li>Set short-term and long-term objectives</li>
+                        <li>Track your progress with visual goal thermometers</li>
+                        <li>Celebrate achievements with virtual badges and rewards</li>
+                        <li>Adjust your goals as needed with flexible planning tools</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail">
+                    <h3>Health Tracking</h3>
+                    <p>Take control of your well-being with our health tracking features. With LifeFlowHub, you can:</p>
+                    <ul>
+                        <li>Log daily activities and exercises</li>
+                        <li>Track nutritional intake and hydration levels</li>
+                        <li>Monitor sleep patterns and quality</li>
+                        <li>Record vital signs and health metrics</li>
+                        <li>Set and track fitness goals</li>
+                        <li>Integrate with popular fitness devices and apps</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail">
+                    <h3>Academic Planning</h3>
+                    <p>Excel in your studies with our powerful academic planning tools. LifeFlowHub allows you to:</p>
+                    <ul>
+                        <li>Organize assignments and projects by course</li>
+                        <li>Create detailed study schedules</li>
+                        <li>Set reminders for important deadlines</li>
+                        <li>Track your grades and academic progress</li>
+                        <li>Use Pomodoro timers for focused study sessions</li>
+                        <li>Collaborate with classmates on group projects</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>DUMMY WEBSITE by SHAUN</p>
+        </div>
+    </footer>
+</body>
+</html>
