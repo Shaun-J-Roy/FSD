@@ -137,7 +137,6 @@
         
         #habit-chart {
             width: 100%;
-            max-width: 600px;
             height: 300px;
             margin: 20px auto;
         }
@@ -145,7 +144,7 @@
         #habit-chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             margin: 20px auto;
         }
         
@@ -254,14 +253,6 @@
                     </ul>
                 </div>
             </div>
-
-                <div class="feature-detail">
-                    <h3>Geolocation</h3>
-                    <p>Use your current location to enhance your LifeFlowHub experience:</p>
-                    <button id="get-location">Get My Location</button>
-                    <p id="location-display"></p>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -286,21 +277,22 @@
 
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             const maxValue = Math.max(...data);
-            const barWidth = ctx.canvas.width / data.length;
+            const barWidth = (ctx.canvas.width - 40) / data.length; // Leave space for y-axis
             const chartHeight = ctx.canvas.height - 40; // Leave space for x-axis labels
 
             // Draw bars
             data.forEach((value, index) => {
                 const barHeight = (value / maxValue) * chartHeight;
                 ctx.fillStyle = colors[index];
-                ctx.fillRect(index * barWidth, chartHeight - barHeight, barWidth - 5, barHeight);
+                ctx.fillRect(40 + index * barWidth, chartHeight - barHeight, barWidth - 5, barHeight);
             });
 
             // Draw x-axis labels
             ctx.fillStyle = '#333';
             ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
             labels.forEach((label, index) => {
-                ctx.fillText(label, index * barWidth + barWidth / 2 - 10, ctx.canvas.height - 10);
+                ctx.fillText(label, 40 + index * barWidth + barWidth / 2, ctx.canvas.height - 10);
             });
 
             // Draw y-axis labels
@@ -308,18 +300,18 @@
             ctx.textBaseline = 'middle';
             for (let i = 0; i <= 100; i += 25) {
                 const y = chartHeight - (i / 100) * chartHeight;
-                ctx.fillText(i + '%', 25, y);
+                ctx.fillText(i + '%', 35, y);
             }
 
             // Draw y-axis line
             ctx.beginPath();
-            ctx.moveTo(30, 0);
-            ctx.lineTo(30, chartHeight);
+            ctx.moveTo(40, 0);
+            ctx.lineTo(40, chartHeight);
             ctx.stroke();
 
             // Draw x-axis line
             ctx.beginPath();
-            ctx.moveTo(30, chartHeight);
+            ctx.moveTo(40, chartHeight);
             ctx.lineTo(ctx.canvas.width, chartHeight);
             ctx.stroke();
         }
@@ -332,9 +324,9 @@
         // Add interactivity
         ctx.canvas.addEventListener('mousemove', (event) => {
             const rect = ctx.canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
+            const x = event.clientX - rect.left - 40; // Adjust for y-axis space
             const y = event.clientY - rect.top;
-            const index = Math.floor(x / (ctx.canvas.width / data.length));
+            const index = Math.floor(x / ((ctx.canvas.width - 40) / data.length));
 
             if (index >= 0 && index < data.length) {
                 ctx.canvas.title = `${labels[index]}: ${data[index]}%`;
@@ -343,23 +335,6 @@
             }
         });
 
-        // Geolocation (unchanged)
-        const getLocationButton = document.getElementById('get-location');
-        const locationDisplay = document.getElementById('location-display');
-
-        getLocationButton.addEventListener('click', () => {
-            if ("geolocation" in navigator) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    locationDisplay.textContent = `Your location: ${lat.toFixed(4)}, ${lon.toFixed(4)}`;
-                }, function(error) {
-                    locationDisplay.textContent = "Unable to retrieve your location";
-                });
-            } else {
-                locationDisplay.textContent = "Geolocation is not supported by your browser";
-            }
-        });
     </script>
 </body>
 </html>
