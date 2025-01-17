@@ -1,75 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:lf="http://www.lifeflowhubbyshaun.com">
-
-  <xsl:output method="html" indent="yes"/>
-
-  <xsl:template match="/">
-    <html>
-      <head>
-        <title>LifeFlowHub Features</title>
-        <style>
-          table {
-            border-collapse: collapse;
-            width: 100%;
-          }
-          th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-          }
-          th {
-            background-color: #f2f2f2;
-          }
-          .high-importance {
-            font-weight: bold;
-            color: #ff0000;
-          }
-        </style>
-      </head>
-      <body>
-        <h1>LifeFlowHub Features</h1>
-        <table>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Importance</th>
-            <th>User Rating</th>
-          </tr>
-          <xsl:apply-templates select="lf:lifeflow_features">
-            <xsl:sort select="lf:feature/lf:user_rating" order="descending"/>
-          </xsl:apply-templates>
-        </table>
-      </body>
-    </html>
-  </xsl:template>
-
-  <xsl:template match="lf:lifeflow_features">
-    <xsl:for-each select="lf:feature">
-      <tr>
-        <td><xsl:value-of select="lf:name"/></td>
-        <td><xsl:value-of select="lf:description"/></td>
-        <td>
-          <xsl:choose>
-            <xsl:when test="lf:importance = 'High'">
-              <span class="high-importance"><xsl:value-of select="lf:importance"/></span>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="lf:importance"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </td>
-        <td>
-          <xsl:if test="lf:user_rating &gt;= 4.5">
-            <xsl:value-of select="lf:user_rating"/> (Highly Rated)
-          </xsl:if>
-          <xsl:if test="lf:user_rating &lt; 4.5">
-            <xsl:value-of select="lf:user_rating"/>
-          </xsl:if>
-        </td>
-      </tr>
-    </xsl:for-each>
-  </xsl:template>
-
-</xsl:stylesheet>
+<?xml-stylesheet href="sample.xsl" type="text/xsl"?>
+<lifeflow_features xmlns="http://www.lifeflowhubbyshaun.com">
+  <feature>
+    <name>Time Tracking</name>
+    <description>Track your daily activities with ease.</description>
+    <importance>High</importance>
+    <user_rating>4.8</user_rating>
+  </feature>
+  <feature>
+    <name>Goal Setting</name>
+    <description>Set and monitor personal and professional goals.</description>
+    <importance>Medium</importance>
+    <user_rating>4.4</user_rating>
+  </feature>
+  <feature>
+    <name>Mindfulness</name>
+    <description>Daily reminders and exercises for mindfulness.</description>
+    <importance>High</importance>
+    <user_rating>4.9</user_rating>
+  </feature>
+  <feature>
+    <name>Budget Tracker</name>
+    <description>Manage your expenses efficiently.</description>
+    <importance>Low</importance>
+    <user_rating>3.8</user_rating>
+  </feature>
+  <feature>
+    <name>Fitness Tracker</name>
+    <description>Log workouts and monitor fitness goals.</description>
+    <importance>Medium</importance>
+    <user_rating>4.2</user_rating>
+  </feature>
+    <feature>
+    <name>Budget Tracker</name>
+    <description>Manage your expenses efficiently.</description>
+    <importance>Low</importance>
+    <user_rating>3.8</user_rating>
+  </feature>
+  <feature>
+    <name>Fitness Tracker</name>
+    <description>Log workouts and monitor fitness goals.</description>
+    <importance>Medium</importance>
+    <user_rating>4.2</user_rating>
+  </feature>
+</lifeflow_features>

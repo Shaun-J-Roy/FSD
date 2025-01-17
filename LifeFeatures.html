@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LifeFlowHub - Features</title>
     <style>
-         /* Include all styles from index.html */
          * {
             box-sizing: border-box;
             margin: 0;
@@ -280,14 +279,14 @@
             const barWidth = (ctx.canvas.width - 40) / data.length; // Leave space for y-axis
             const chartHeight = ctx.canvas.height - 40; // Leave space for x-axis labels
 
-            // bars
+            // Draw bars
             data.forEach((value, index) => {
                 const barHeight = (value / maxValue) * chartHeight;
                 ctx.fillStyle = colors[index];
                 ctx.fillRect(40 + index * barWidth, chartHeight - barHeight, barWidth - 5, barHeight);
             });
 
-            // x-axis labels
+            // Draw x-axis labels
             ctx.fillStyle = '#333';
             ctx.font = '12px Arial';
             ctx.textAlign = 'center';
@@ -295,7 +294,7 @@
                 ctx.fillText(label, 40 + index * barWidth + barWidth / 2, ctx.canvas.height - 10);
             });
 
-            // y-axis labels
+            // Draw y-axis labels
             ctx.textAlign = 'right';
             ctx.textBaseline = 'middle';
             for (let i = 0; i <= 100; i += 25) {
@@ -303,13 +302,13 @@
                 ctx.fillText(i + '%', 35, y);
             }
 
-            // y-axis line
+            // Draw y-axis line
             ctx.beginPath();
             ctx.moveTo(40, 0);
             ctx.lineTo(40, chartHeight);
             ctx.stroke();
 
-            // x-axis line
+            // Draw x-axis line
             ctx.beginPath();
             ctx.moveTo(40, chartHeight);
             ctx.lineTo(ctx.canvas.width, chartHeight);
@@ -318,13 +317,13 @@
 
         drawChart();
 
-        chart
+        // Make the chart responsive
         window.addEventListener('resize', drawChart);
 
-        // interactivity
+        // Add interactivity
         ctx.canvas.addEventListener('mousemove', (event) => {
             const rect = ctx.canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left - 40;
+            const x = event.clientX - rect.left - 40; // Adjust for y-axis space
             const y = event.clientY - rect.top;
             const index = Math.floor(x / ((ctx.canvas.width - 40) / data.length));
 
