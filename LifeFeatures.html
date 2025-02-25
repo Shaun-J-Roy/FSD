@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LifeFlowHub - Features</title>
     <style>
-         * {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -22,8 +22,11 @@
             padding: 0 20px;
         }
         header {
-            background-color: #f4f4f4;
+            background-color: rgba(244, 244, 244, 0.8);
             padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
         }
         nav {
             display: flex;
@@ -41,35 +44,47 @@
             text-decoration: none;
             color: #333;
         }
-        .hero {
-            background-color: #e9ecef;
+        .parallax-hero {
+            background-image: url('Features image.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 4rem 0;
+            color: #fff;
         }
-        .hero h1 {
-            font-size: 2.5rem;
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
-        .hero p {
+        .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
         }
         .btn {
             display: inline-block;
-            background-color: transparent;
-            border: 1px solid #007bff;
-            color: #007bff;
+            background-color: #007bff;
+            color: #fff;
             padding: 0.5rem 1rem;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s;
         }
         .btn:hover {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #0056b3;
         }
         .features {
             padding: 4rem 0;
+            background-color: #fff;
         }
         .features h2 {
             text-align: center;
@@ -88,24 +103,6 @@
         }
         .feature-item h3 {
             margin-bottom: 1rem;
-        }
-        footer {
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-            }
-            nav ul {
-                margin-top: 1rem;
-            }
-            nav ul li {
-                margin-left: 0;
-                margin-right: 20px;
-            }
         }
         .feature-detail {
             margin-top: 2rem;
@@ -133,50 +130,74 @@
             left: 0;
             color: #28a745;
         }
-        
         #habit-chart {
             width: 100%;
             height: 300px;
             margin: 20px auto;
         }
-        
         #habit-chart-container {
             position: relative;
             width: 100%;
             max-width: 800px;
             margin: 20px auto;
         }
-        
         #habit-chart-title {
             text-align: center;
             font-size: 1.2em;
             margin-bottom: 10px;
             color: #333;
         }
+        footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            nav ul li {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <h1><a href="index.html">LifeFlowHub</a></h1>
+            <h1><a href="LifeFlowHub.html">LifeFlowHub</a></h1>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="LifeFlowHub.html">Home</a></li>
                 <li><a href="LifeFeatures.html">Features</a></li>
                 <li><a href="LifeModules.html">Modules</a></li>
                 <li><a href="LifeIntergrations.html">Integrations</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <section class="hero">
-            <div class="container">
+        <section class="parallax-hero">
+            <div class="hero-content">
                 <h1>LifeFlowHub Features</h1>
                 <p>Discover the powerful features that make LifeFlowHub your ultimate life management platform.</p>
-                <a href="LifeStart.html" class="btn">Get Started</a>
+                <a href="#features" class="btn">Explore Features</a>
             </div>
         </section>
-        <section class="features">
+
+        <section id="features" class="features">
             <div class="container">
+                <h2>Our Key Features</h2>
                 <div class="feature-grid">
                     <div class="feature-item">
                         <h3>Habit Tracking</h3>
@@ -251,6 +272,12 @@
                         <li>Collaborate with classmates on group projects</li>
                     </ul>
                 </div>
+                <div class="feature-detail">
+                    <h3>LifeFlowHub Headquarters</h3>
+                    <p>Our central hub is located at Christ University Central Campus, Bangalore:</p>
+                    <button id="get-location">Show Headquarters Location</button>
+                    <p id="location-display"></p>
+                </div>
             </div>
         </section>
     </main>
@@ -262,7 +289,7 @@
     </footer>
 
     <script>
-        // Habit Tracker Chart
+        // Habit Tracker Chart (unchanged)
         const ctx = document.getElementById('habit-chart').getContext('2d');
         const data = Array.from({length: 7}, () => Math.floor(Math.random() * 100));
         const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -334,6 +361,23 @@
             }
         });
 
+        // Smooth scrolling for the "Explore Features" button
+        document.querySelector('a[href="#features"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Geolocation
+        const getLocationButton = document.getElementById('get-location');
+        const locationDisplay = document.getElementById('location-display');
+
+        getLocationButton.addEventListener('click', () => {
+            const lat = 12.9344;
+            const lon = 77.6069;
+            locationDisplay.textContent = `LifeFlowHub Headquarters: ${lat.toFixed(4)}, ${lon.toFixed(4)} (Christ University Central Campus, Bangalore)`;
+        });
     </script>
 </body>
 </html>
