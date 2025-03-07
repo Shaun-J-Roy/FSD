@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Sign Up - LifeFlowHub</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form {
+          padding: 20px;
+          background: #d3d3d3;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 20px;
+          border-radius: 5px;
+          border: 2px solid #323232;
+          box-shadow: 4px 4px #323232;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 2px solid #323232;
+            border-radius: 5px;
+            box-shadow: 4px 4px #323232;
+            padding: 5px 10px;
+            width: 250px;
+        }
+        .input-container i {
+            margin-right: 10px;
+            color: #323232;
+        }
+        .input-container input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 15px;
+            font-weight: 600;
+            color: #323232;
+            background: transparent;
+        }
+        .oauthButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 250px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid #323232;
+            background-color: #fff;
+            box-shadow: 4px 4px #323232;
+            font-size: 16px;
+            font-weight: 600;
+            color: #323232;
+            cursor: pointer;
+            transition: all 250ms;
+            position: relative;
+            overflow: hidden;
+        }
+        .oauthButton:hover {
+            color: #e8e8e8;
+            background: #212121;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form action="" class="form">
+            <p>Welcome,<span>sign in to continue</span></p>
+            
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Name" name="name">
+            </div>
+            <div class="input-container">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" name="email">
+            </div>
+            <div class="input-container">
+                <i class="fas fa-phone"></i>
+                <input type="text" placeholder="Phone" name="phone">
+            </div>
+            
+            <button class="oauthButton">
+                Continue
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 17 5-5-5-5"></path><path d="m13 17 5-5-5-5"></path></svg>
+            </button>
+        </form>
+    </main>
+</body>
+</html>
